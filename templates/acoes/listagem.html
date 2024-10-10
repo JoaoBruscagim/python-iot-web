@@ -1,0 +1,79 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="container text-white text-center p-3 mt-5" style="background-color: #1b1464;">
+    <h1>Listagem de Ações</h1>
+</div>
+<div class="container mt-5">
+    <div class="d-flex justify-content-end">
+        {% csrf_token %}
+        <a class="btn btn-dark" href="{% url 'addAction' id=id %}" style="background-color: #1b1464;">Cadastrar</a>
+    </div>
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark text-center" style="background-color: #1b1464;">
+                <tr>
+                    <td>Nome</td>
+                    <td>Alterações</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% if registros %}
+                {% for registro in registros %}
+                <tr>
+                    <td class="text-center">{{ registro.acao }}</td>
+                    <td>
+                        <div class="d-flex justify-content-around align-middle">
+                            <button title="Alterar" class="btn text-dark" onclick="alterar('{{ registro.id }}')"><i
+                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                            <button title="Excluir" class="btn text-dark"
+                                onclick="excluir('{{ registro.id }}', '{{ csrf_token }}')">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="2" class="text-center">Não há nenhuma ação cadastrada.</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function excluir(id, csrfToken) {
+        if (confirm("Tem certeza que deseja excluir esta ação?")) {
+            fetch(`/acoes/del`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify({ id: id })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    } else {
+                        return response.json().then(err => {
+                            console.error('Erro ao excluir:', err);
+                            window.alert('Erro ao excluir: ' + err.message);
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro ao realizar a operação.');
+                });
+        }
+    }
+
+
+    function alterar(id) {
+        window.location.href = `/acoes/upd/${id}`;
+    }
+
+</script>
+{% endblock %}

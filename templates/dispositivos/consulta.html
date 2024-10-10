@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <div class="text-white text-center p-5" style="background-color: #1b1464;">
+        <h1>Consulta de Dispositivo</h1>
+    </div>
+    <div class="container mt-5">
+        <form action="{% url 'queryClient' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group text-center">
+                <label>Digite o ID:</label>
+                <input type="number" name="id">
+                <input type="submit" value="Buscar">
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark text-center" style="background-color: #1b1464;">
+                        <tr>
+                            <td>#</td>
+                            <td>Nome</td>
+                            <td>Endereço</td>
+                            <td>Chave</td>
+                            <td>ID do Dispositivo</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ registro.id }}</td>
+                            <td>{{ registro.nome }}</td>
+                            <td>{{ registro.endereco }}</td>
+                            <td>{{ registro.chave }}</td>
+                            <td>{{ registro.devId }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+        <h2 class="text-danger text-center">{{ erro }}</h2>
+    </div>
+    {% endblock %}

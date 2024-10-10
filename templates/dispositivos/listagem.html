@@ -1,0 +1,107 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="container text-white text-center p-3 mt-5" style="background-color: #1b1464;">
+    <h1>Listagem de Dispositivos</h1>
+</div>
+{% csrf_token %}
+<div class="container mt-5">
+    <div class="d-flex justify-content-end" style="gap: 5px;">
+        <a class="btn btn-dark" href="/dispositivos/scanner" style="background-color: #1b1464;">Scan</a>
+        <a class="btn btn-dark" href="/dispositivos/add" style="background-color: #1b1464;">Cadastrar</a>
+    </div>
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark text-center" style="background-color: #1b1464;">
+                <tr>
+                    <td>#</td>
+                    <td>ID do Dispositivo</td>
+                    <td>Nome</td>
+                    <td>Endereço</td>
+                    <td>Chave</td>
+                    <td>Ativo</td>
+                    <td>Mudanças</td>
+                    <td>Ações</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% if registros %}
+                {% for registro in registros %}
+                <tr>
+                    <td>{{ registro.id }}</td>
+                    <td>{{ registro.devId }}</td>
+                    <td>{{ registro.nome }}</td>
+                    <td>{{ registro.endereco }}</td>
+                    <td>{{ registro.chave }}</td>
+                    <td>
+                        {% if registro.ativo == True %}
+                        Ativo
+                        {% else %}
+                        Desativado
+                        {%endif%}
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-around align-middle">
+                            <button title="Alterar" class="btn text-dark" onclick="alterar('{{ registro.id }}')"><i
+                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                            <button title="Excluir" class="btn text-dark"
+                                onclick="excluir('{{ registro.id }}', '{{ csrf_token }}')"><i class="fa fa-trash-o"
+                                    aria-hidden="true"></i></button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-around">
+                            <button class="btn text-dark" style="width: auto;"
+                                onclick="exibirAcoes('{{ registro.id }}')"><i class="fa fa-eye"
+                                    aria-hidden="true"></i></button>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="7" class="text-center">Não há nenhum dispositivo cadastrado.</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function excluir(id, csrf) {
+        if (confirm("Tem certeza que deseja excluir este dispositivo?")) {
+            const csrfToken = csrf;
+            fetch(`/dispositivos/del`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken
+                    },
+                    body: JSON.stringify({ id: id })
+                })
+                .then(response => {
+                    console.log(response)
+                    if (response.status == '200') {
+                        window.location.reload()
+                    }
+                    else {
+                        window.alert('Erro ao excluir.')
+                        return
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                    alert(error)
+                });
+        }
+    }
+
+    function alterar(id) {
+        window.location.href = `/dispositivos/upd/${id}`;
+    }
+
+    function exibirAcoes(id) {
+        window.location.href = `/acoes/list/${id}`;
+    }
+</script>
+{% endblock %}

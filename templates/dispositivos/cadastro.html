@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <div class="container text-white text-center p-3 mt-5" style="background-color: #1b1464;">
+        <h1>Cadastro de Dispositivo</h1>
+    </div>
+    <div class="container mt-5 shadow-lg p-3 mb-5 bg-white rounded border border-dark">
+        <form id="form" action="{% url 'addDevice' %}" method="post">
+            {% csrf_token %}    
+            <div class="form-group">
+                <label for="email">ID do Dispositivo</label>
+                <input type="text" class="form-control" id="devId" name="devId">
+            </div>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="celular">Endereço</label>
+                <input type="text" class="form-control" id="endereco" name="endereco" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Chave</label>
+                <input type="text" class="form-control" id="chave" name="chave">
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="reset" class="btn btn-secondary ml-2">Reset</button>
+        </form>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% endblock %}

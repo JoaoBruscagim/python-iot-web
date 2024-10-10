@@ -1,0 +1,208 @@
+[
+    {
+        "name": "Switch 3",
+        "id": "eb55c7d34ad336d4765dvw",
+        "key": "oeBYwUNO`lqupa+#",
+        "mac": "50:8a:06:fa:28:87",
+        "uuid": "0390067248ca7eea",
+        "category": "tdq",
+        "product_name": "\u901a\u65ad\u5668",
+        "product_id": "mdgzfbh0gbaz39ir",
+        "biz_type": 0,
+        "model": "onoff_wifi",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/bay1588044744918i6Rv/db8810e573c1a8f2799a9749d3bc6302.png",
+        "mapping": {
+            "1": {
+                "code": "switch_1",
+                "type": "Boolean",
+                "values": {}
+            },
+            "9": {
+                "code": "countdown_1",
+                "type": "Integer",
+                "values": {
+                    "unit": "s",
+                    "min": 0,
+                    "max": 86400,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "38": {
+                "code": "relay_status",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "0",
+                        "1",
+                        "2"
+                    ]
+                }
+            },
+            "41": {
+                "code": "cycle_time",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "42": {
+                "code": "random_time",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "43": {
+                "code": "switch_inching",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            }
+        }
+    },
+    {
+        "name": "Switch 2",
+        "id": "ebe8ce9be31bc05fd0gke0",
+        "key": "?~0pwD6-^4n0TI&W",
+        "mac": "10:5a:17:05:8d:34",
+        "uuid": "9ae1793aed805361",
+        "category": "tdq",
+        "product_name": "\u901a\u65ad\u5668",
+        "product_id": "mdgzfbh0gbaz39ir",
+        "biz_type": 0,
+        "model": "onoff_wifi",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/bay1588044744918i6Rv/db8810e573c1a8f2799a9749d3bc6302.png",
+        "mapping": {
+            "1": {
+                "code": "switch_1",
+                "type": "Boolean",
+                "values": {}
+            },
+            "9": {
+                "code": "countdown_1",
+                "type": "Integer",
+                "values": {
+                    "unit": "s",
+                    "min": 0,
+                    "max": 86400,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "38": {
+                "code": "relay_status",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "0",
+                        "1",
+                        "2"
+                    ]
+                }
+            },
+            "41": {
+                "code": "cycle_time",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "42": {
+                "code": "random_time",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "43": {
+                "code": "switch_inching",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            }
+        }
+    },
+    {
+        "name": "Switch 1",
+        "id": "eb5939a9493ab09233neg5",
+        "key": "S!DfPxq''<4_ehd0",
+        "mac": "10:5a:17:05:c9:c0",
+        "uuid": "6cec57bb5e3d4a45",
+        "category": "tdq",
+        "product_name": "\u901a\u65ad\u5668",
+        "product_id": "mdgzfbh0gbaz39ir",
+        "biz_type": 0,
+        "model": "onoff_wifi",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/bay1588044744918i6Rv/db8810e573c1a8f2799a9749d3bc6302.png",
+        "mapping": {
+            "1": {
+                "code": "switch_1",
+                "type": "Boolean",
+                "values": {}
+            },
+            "9": {
+                "code": "countdown_1",
+                "type": "Integer",
+                "values": {
+                    "unit": "s",
+                    "min": 0,
+                    "max": 86400,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "38": {
+                "code": "relay_status",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "0",
+                        "1",
+                        "2"
+                    ]
+                }
+            },
+            "41": {
+                "code": "cycle_time",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "42": {
+                "code": "random_time",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "43": {
+                "code": "switch_inching",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            }
+        }
+    },
+    {
+        "name": "Tomada Branca",
+        "id": "0052083024a1600328bb",
+        "key": "*}v&^crDa10OV!P|",
+        "mac": "24:a1:60:03:28:bb",
+        "uuid": "0052083024a1600328bb",
+        "category": "kg",
+        "product_name": "S601",
+        "product_id": "ki16naecy65cuo3v",
+        "biz_type": 0,
+        "model": "S601",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/ay1562830083757AoBrF/28b13c3a858d0b1b0e0a41369dd32a21.jpg",
+        "mapping": {
+            "1": {
+                "code": "switch_1",
+                "type": "Boolean",
+                "values": {}
+            },
+            "9": {
+                "code": "countdown_1",
+                "type": "Integer",
+                "values": {
+                    "unit": "s",
+                    "min": 0,
+                    "max": 86400,
+                    "scale": 0,
+                    "step": 1
+                }
+            }
+        }
+    }
+]
