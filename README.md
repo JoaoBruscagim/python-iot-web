@@ -31,8 +31,8 @@ O **IoT Device Manager** é uma aplicação web desenvolvida em Django que permi
 ### Configuração do Ambiente
 
 1. Clone o repositório:
-   - git clone https://github.com/JoaoBruscagim/python-iot-web
-   - cd python-iob-web
+  - git clone https://github.com/JoaoBruscagim/python-iot-web
+  - cd python-iob-web
    
 2. Crie um ambiente virtual e ative-o:
   - python -m venv venv
