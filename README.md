@@ -38,7 +38,7 @@ O **IoT Device Manager** é uma aplicação web desenvolvida em Django que permi
 2. Crie um ambiente virtual e ative-o:
   python -m venv venv
   source venv/bin/activate  
-Para Windows: venv\Scripts\activate
+  Para Windows: venv\Scripts\activate
 
 4. Instale as dependências
    pip install requirements.txt
