@@ -8,7 +8,7 @@ from dispositivos.models import Dispositivos
 import json
 from tinytuya.wizard import wizard as wz
 from pathlib import Path
-
+import tinytuya
 
 def home(request):
     return render(request, 'dispositivos/home.html')
@@ -146,6 +146,16 @@ def atualizarAcao(request, id):
 
     return render(request, 'acoes/atualizar.html', {'registro': registro})
 
+def dispositivoUnico(request, id):
+    try:
+        registro = Dispositivos.objects.get(id=id)
+        return render(request, 'dispositivos/acaoDispositivo.html', {'registro': registro})
+        
+    except Exception:
+        traceback.print_exc()
+        return render(request, 'dispositivos/acaoDispositivo.html')  
+
+    
 
 def scanDevices(request):
     try:

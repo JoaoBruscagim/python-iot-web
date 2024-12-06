@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="container text-white text-center p-3 mt-5" style="background-color: #1b1464;">
+    <h1>Detalhes do Dispositivo</h1>
+</div>
+
+<div class="container mt-5">
+    <div class="card text-white bg mb-3">
+        <div class="card-header">
+            <h5 class="card-title" style="color: #000;">Informações do Dispositivo</h5>
+        </div>
+        <div class="card-body" style="color: #000;">
+            <h6 class="card-subtitle mb-2">Nome: <strong>{{ registro.nome|default:"Sem nome" }}</strong></h6>
+            <h6 class="card-subtitle mb-2">IP: <strong>{{ registro.endereco }}</strong></h6>
+            <h6 class="card-subtitle mb-2">MAC: <strong>{{ registro.devId }}</strong></h6>
+            <h6 class="card-subtitle mb-2">Chave: <strong>{{ registro.chave }}</strong></h6>
+            <h6 class="card-subtitle mb-2">
+                Status: 
+                {% if registro.ativo == True %}
+                <span class="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; display: inline-block; 
+                background-color: green"></span>
+                {% else %}
+                <span class="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; display: inline-block; 
+                background-color: red"></span>
+                {%endif%}
+
+                <strong>{{ registro.status }}</strong>
+            </h6>
+        </div>
+        <div class="card-footer text-center">
+            <button class="btn btn-primary" onclick="ligarDesligar()">
+                {% if registro.ativo == True %}
+                Desligar
+                {% else %}
+                Ligar
+                {% endif %}
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+function ligarDesligar() {
+    const ativo = "{{ dispositivo.ativo }}";
+    if (ativo === true) {
+        alert('Dispositivo desligado!');
+    } else {
+        alert('Dispositivo ligado!');
+    }
+}
+</script>
+{% endblock %}
